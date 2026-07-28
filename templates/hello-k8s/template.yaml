@@ -43,15 +43,24 @@ spec:
               - github.com
 
   steps:
-    - id: render-manifest
-      name: Render Kubernetes Deployment
+    # Each step executes an action, in this case one templates files into the working directory.
+    - id: fetch-base
+      name: Fetch Base
       action: fetch:template
       input:
         url: ./skeleton
-        targetPath: ./output
         values:
           appName: ${{ parameters.applicationName }}
           envName: ${{ parameters.environmentName }}
+    # - id: render-manifest
+    #   name: Render Kubernetes Deployment
+    #   action: fetch:template
+    #   input:
+    #     url: ./skeleton
+    #     targetPath: ./output
+    #     values:
+    #       appName: ${{ parameters.applicationName }}
+    #       envName: ${{ parameters.environmentName }}
 
     - id: publish
       name: Publish
