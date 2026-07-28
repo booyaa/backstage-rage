@@ -1,0 +1,48 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: kubernetes-nginx-deployment
+  title: Kubernetes Nginx Deployment
+  description: Generate a Kubernetes Deployment manifest for an Nginx workload.
+spec:
+  owner: platform/team
+  type: service
+
+  parameters:
+    - title: Deployment Settings
+      required:
+        - applicationName
+        - environmentName
+      properties:
+        applicationName:
+          type: string
+          title: Application Name
+          description: Lowercase Kubernetes-safe app name.
+          pattern: '^[a-z0-9]([a-z0-9-]{1,61}[a-z0-9])?$'
+          examples:
+            - webslinger
+        environmentName:
+          type: string
+          title: Environment Name
+          description: Target environment namespace and label.
+          enum:
+            - dev
+            - staging
+            - prod
+          default: dev
+
+  steps:
+    - id: render-manifest
+      name: Render Kubernetes Deployment
+      action: fetch:template
+      input:
+        url: ./skeleton
+        targetPath: ./output
+        values:
+          appName: ${{ parameters.applicationName }}
+          envName: ${{ parameters.environmentName }}
+
+  output:
+    text:
+      - title: Generated Manifest
+        content: Deployment manifest generated at output/deployment.yaml.
