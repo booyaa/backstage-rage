@@ -52,16 +52,6 @@ spec:
         values:
           appName: ${{ parameters.applicationName }}
           envName: ${{ parameters.environmentName }}
-    # - id: render-manifest
-    #   name: Render Kubernetes Deployment
-    #   action: fetch:template
-    #   input:
-    #     url: ./skeleton
-    #     targetPath: ./output
-    #     values:
-    #       appName: ${{ parameters.applicationName }}
-    #       envName: ${{ parameters.environmentName }}
-
     - id: publish
       name: Publish
       action: publish:github
@@ -97,7 +87,3 @@ spec:
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps['register'].output.entityRef }}
-
-    # text:
-    #   - title: Generated Manifest
-    #     content: Deployment manifest generated at output/deployment.yaml.

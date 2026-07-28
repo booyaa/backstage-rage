@@ -2,7 +2,15 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{ values.appName | dump }}
+  backstage.io/kubernetes-id: ${{ values.appName | dump }}
+  backstage.io/namespace: ${{ values.envName | dump }}
+  tags:
+    - env: ${{ values.envName | dump }}
+    - language: yaml
+    - image: nginx
 spec:
   type: service
-  owner: user:guest
+  owner: guests
   lifecycle: experimental
+  system: examples
+
