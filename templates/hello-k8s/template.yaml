@@ -5,11 +5,11 @@ metadata:
   title: Kubernetes Nginx Deployment
   description: Generate a Kubernetes Deployment manifest for an Nginx workload.
 spec:
-  owner: platform/team
+  owner: user:guest
   type: service
 
   parameters:
-    - title: Deployment Settings
+    - title: Service Configuration
       required:
         - applicationName
         - environmentName
@@ -30,6 +30,17 @@ spec:
             - staging
             - prod
           default: dev
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
 
   steps:
     - id: render-manifest
@@ -42,7 +53,42 @@ spec:
           appName: ${{ parameters.applicationName }}
           envName: ${{ parameters.environmentName }}
 
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        description: Kubernetes Deployment manifest for ${{ parameters.applicationName }} in ${{ parameters.environmentName }} environment.
+        repoUrl: ${{ parameters.repoUrl }}
+        defaultBranch: 'main'
+    
+    # The final step is to register our new component in the catalog.
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        catalogInfoPath: '/catalog-info.yaml'
+
+    # Let's notify the user that the template has completed using the Notification action
+    - id: notify
+      name: Notify
+      action: notification:send
+      input:
+        recipients: entity
+        entityRefs:
+          - user:default/guest
+        title: 'Template executed'
+        info: 'Your template has been executed'
+        severity: 'normal'
+
   output:
-    text:
-      - title: Generated Manifest
-        content: Deployment manifest generated at output/deployment.yaml.
+    links:
+      - title: Repository
+        url: ${{ steps['publish'].output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }}
+
+    # text:
+    #   - title: Generated Manifest
+    #     content: Deployment manifest generated at output/deployment.yaml.
