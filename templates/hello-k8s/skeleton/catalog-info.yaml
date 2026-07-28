@@ -5,9 +5,8 @@ metadata:
   backstage.io/kubernetes-id: ${{ values.appName | dump }}
   backstage.io/namespace: ${{ values.envName | dump }}
   tags:
-    - env: ${{ values.envName | dump }}
-    - language: yaml
-    - image: nginx
+    - ${{ values.envName | dump }}
+    - yaml
 spec:
   type: service
   owner: guests
