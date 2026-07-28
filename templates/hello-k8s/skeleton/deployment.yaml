@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${{ values.appName }}-deployment
+  name: ${{ values.appName }}
   namespace: ${{ values.envName }}
 spec:
   selector:
