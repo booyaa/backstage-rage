@@ -2,8 +2,9 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{ values.appName | dump }}
-  backstage.io/kubernetes-id: ${{ values.appName | dump }}
   backstage.io/namespace: ${{ values.envName | dump }}
+  annotations:
+    backstage.io/kubernetes-id: ${{ values.appName | dump }}
   tags:
     - ${{ values.envName | dump }}
     - yaml
