@@ -8,6 +8,16 @@ The chart source lives in [helm-charts/hello-k8s](helm-charts/hello-k8s). A GitH
 
 The same packaging and index generation logic is also available locally in [scripts/publish-helm-repo.sh](scripts/publish-helm-repo.sh).
 
+### GitHub Pages setup
+
+In the repository settings, enable Pages with these values:
+
+1. Source: GitHub Actions
+2. Deployment branch: not used when publishing through Actions
+3. Public URL: `https://YOUR_GITHUB_USER_OR_ORG.github.io/backstage-rage/`
+
+The workflow publishes the site root containing both `index.yaml` and the packaged chart archives, so Helm can read the repository directly from that URL.
+
 ### Consumer usage
 
 ```sh
