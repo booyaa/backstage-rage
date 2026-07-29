@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.envName }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.appName }}
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appName }}
+        env: {{ .Values.envName }}
+        backstage.io/kubernetes-id: {{ .Values.appName }}
+    spec:
+      containers:
+        - name: {{ .Values.appName }}-nginx
+          image: nginx:{{ .Chart.AppVersion }}
+          ports:
+            - containerPort: {{ .Values.port }}

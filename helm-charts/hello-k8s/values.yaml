@@ -1,0 +1,4 @@
+appName: webslinger
+envName: dev
+port: 80
+replicas: 2
