@@ -1,0 +1,37 @@
+# See README.md for additioanl steps
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+data:
+  accounts.backstage: apiKey, login
+  accounts.backstage.enabled: "true"
+
+---
+# ArgoCD RBAC ConfigMap see https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+data:
+  policy.csv: |
+    # Allow Backstage read-only access to all applications
+    p, role:backstage, applications, get, */*, allow
+    p, role:backstage, applications, list, */*, allow
+    p, role:backstage, logs, get, */*, allow
+    p, role:backstage, repositories, get, *, allow
+    g, backstage, role:backstage
+---
+# We don't want TLS termination since we're handing off to ngrok
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cmd-params-cm
+  namespace: argocd
+data:
+  server.insecure: "true"
