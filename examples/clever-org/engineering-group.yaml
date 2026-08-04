@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: engineering
+  description: The engineering department
+spec:
+  type: department
+  # Intentional no profile for testing
+  parent: clever-mentions
+  children: [platformengineering,features]

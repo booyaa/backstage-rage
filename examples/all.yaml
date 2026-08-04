@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: all-the-things
+  description: A collection of all Backstage example entities (including org, groups and users)
+spec:
+  targets:
+    - ./clever-org/org.yaml

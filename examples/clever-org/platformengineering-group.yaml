@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: platformengineering
+  description: The platform engineering sub-department
+spec:
+  type: sub-department
+  profile:
+    displayName: Platform Engineering
+    email: platformengineering@example.com
+    picture: https://api.dicebear.com/7.x/identicon/svg?seed=Fluffy&backgroundColor=ffdfbf
+  parent: engineering
+  children: [team-alpha,team-beta]

@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: features
+  description: The features sub-department
+spec:
+  type: sub-department
+  profile:
+    displayName: Features
+    email: features@example.com
+    # Intentional no picture for testing
+  parent: engineering
+  children: [team-charlie, team-delta]

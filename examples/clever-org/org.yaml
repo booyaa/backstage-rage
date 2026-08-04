@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: clever-mentions
+  description: The clever-mentions organization
+  links:
+    - url: http://example.com/
+      title: Website
+    - url: https://meta.wikimedia.org/wiki/
+      title: Intranet
+spec:
+  type: organization
+  profile:
+    displayName: Clever Mentions
+    email: info@example.com
+    picture: https://api.dicebear.com/10.x/planets/svg
+  children: [engineering]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: clever-groups
+  description: A collection of all Clever groups
+spec:
+  targets:
+    - ./engineering-group.yaml
+    - ./platformengineering-group.yaml
+    - ./features-group.yaml
