@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: cweets-cache
+  description: Caches recent cweets
+spec:
+  type: cache
+  owner: team-bravo
+  lifecycle: experimental
+  system: cweets

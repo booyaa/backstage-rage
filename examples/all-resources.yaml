@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: cweets-resources
+  description: A collection of all cweet resources
+spec:
+  targets:
+    - ./resources/cweets-db-resource.yaml
+    - ./resources/cweets-cache-resource.yaml
+    - ./resources/cweets-blob-resource.yaml

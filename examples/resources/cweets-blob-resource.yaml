@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: cweets-blob
+  description: Cweet blob storage
+spec:
+  type: cache
+  owner: team-bravo
+  lifecycle: experimental
+  system: cweets

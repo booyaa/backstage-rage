@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: cweets-db
+  description: Stores cweets
+spec:
+  type: database
+  owner: team-bravo
+  lifecycle: experimental
+  system: cweets
