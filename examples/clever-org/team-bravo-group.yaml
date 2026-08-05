@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: team-bravo
+  description: Team Bravo is responsible for the feature development
+spec:
+  type: team
+  profile:
+    displayName: Team Bravo
+    email: team-bravo@example.com
+    picture: https://api.dicebear.com/7.x/identicon/svg?seed=Abby&backgroundType=solid,gradientLinear&backgroundColor=ffd5dc,b6e3f4
+  parent: features
+  # parent: backstage
+  children: []
+---
+# these are copied from the backstage example org
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: amelia.park
+spec:
+  profile:
+    displayName: Amelia Park
+    email: amelia-park@example.com
+    picture: https://api.dicebear.com/7.x/avataaars/svg?seed=Gizmo&backgroundColor=transparent
+  memberOf: [team-bravo]
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: colette.brock
+spec:
+  profile:
+    displayName: Colette Brock
+    email: colette-brock@example.com
+    picture: https://api.dicebear.com/7.x/avataaars/svg?seed=Bailey&backgroundColor=transparent
+  memberOf: [team-bravo]
