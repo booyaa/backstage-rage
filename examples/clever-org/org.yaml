@@ -26,3 +26,5 @@ spec:
     - ./engineering-group.yaml
     - ./platformengineering-group.yaml
     - ./features-group.yaml
+    - ./team-alpha-group.yaml
+    - ./team-bravo-group.yaml

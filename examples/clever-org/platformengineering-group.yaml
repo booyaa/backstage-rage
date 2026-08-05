@@ -10,4 +10,4 @@ spec:
     email: platformengineering@example.com
     picture: https://api.dicebear.com/7.x/identicon/svg?seed=Fluffy&backgroundColor=ffdfbf
   parent: engineering
-  children: [team-alpha,team-beta]
+  children: [team-alpha]

@@ -10,4 +10,4 @@ spec:
     email: features@example.com
     # Intentional no picture for testing
   parent: engineering
-  children: [team-charlie, team-delta]
+  children: [team-bravo]
