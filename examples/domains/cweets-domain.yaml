@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: cweets
+  description: Everything related to posts (cweets)
+  links:
+    - url: http://example.com/domain/cweet/
+      title: Domain Readme
+    - url: http://example.com/domains/cweet/dashboard
+      title: Domain Metrics Dashboard
+      icon: dashboard
+spec:
+  owner: clever-mentions

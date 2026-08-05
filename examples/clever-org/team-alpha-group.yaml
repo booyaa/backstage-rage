@@ -13,13 +13,14 @@ spec:
   # parent: backstage
   children: []
 ---
+# these are copied from the backstage example org
 apiVersion: backstage.io/v1alpha1
 kind: User
 metadata:
-  name: booyaa
+  name: amelia.park
 spec:
   profile:
-    # Intentional no displayName for testing
-    email: some-git-user@example.com
-    picture: https://api.dicebear.com/7.x/avataaars/svg?seed=Luna&backgroundColor=transparent
-  memberOf: [team-alpha, guests]
+    displayName: Amelia Park
+    email: amelia-park@example.com
+    picture: https://api.dicebear.com/7.x/avataaars/svg?seed=Gizmo&backgroundColor=transparent
+  memberOf: [team-alpha]

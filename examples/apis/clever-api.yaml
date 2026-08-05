@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: clever-api
+  description: The backend API
+  tags:
+    - backend
+    - rest
+spec:
+  type: openapi
+  lifecycle: production
+  owner: team-bravo
+  definition:
+    $text: https://github.com/APIs-guru/openapi-directory/blob/dab6854d4d599aafb0eb36e6c7ae1fe0c37509b7/APIs/spotify.com/2021.4.2/openapi.yaml
+  # ^-- demonstrates how to reference OpenAPI URL directly instead of using an inline definition. This is useful for large OpenAPI definitions that are not easily maintained inline in the catalog-info.yaml file.
