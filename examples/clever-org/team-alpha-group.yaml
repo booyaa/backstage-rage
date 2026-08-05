@@ -20,6 +20,6 @@ metadata:
 spec:
   profile:
     # Intentional no displayName for testing
-    email: booyaabooyaabooyaa@gmail.com
+    email: some-git-user@example.com
     picture: https://api.dicebear.com/7.x/avataaars/svg?seed=Luna&backgroundColor=transparent
   memberOf: [team-alpha, guests]
