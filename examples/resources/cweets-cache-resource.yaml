@@ -5,6 +5,6 @@ metadata:
   description: Caches recent cweets
 spec:
   type: cache
-  owner: team-bravo
+  owner: team-alpha
   lifecycle: experimental
   system: cweets

@@ -5,6 +5,6 @@ metadata:
   description: Stores cweets
 spec:
   type: database
-  owner: team-bravo
+  owner: team-alpha
   lifecycle: experimental
   system: cweets

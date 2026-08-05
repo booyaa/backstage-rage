@@ -4,7 +4,7 @@ metadata:
   name: cweets-blob
   description: Cweet blob storage
 spec:
-  type: cache
-  owner: team-bravo
+  type: blob-storage
+  owner: team-alpha
   lifecycle: experimental
   system: cweets
